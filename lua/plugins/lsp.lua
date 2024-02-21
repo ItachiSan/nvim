@@ -3,6 +3,8 @@ local required_lsp = {
     lua_ls = {},
     -- Bash
     bashls = {},
+    -- PKGBUILD (cannot be installed)
+    -- pkgbuild_language_server = {},
     -- Python
     ruff_lsp = {}
 }
@@ -37,9 +39,9 @@ return {
             end
         end,
         keys = {
-            {'gD', vim.lsp.buf.declaration},
-            {'gd', vim.lsp.buf.definition},
-            {'K', vim.lsp.buf.hover},
+            {'<leader>cD', vim.lsp.buf.declaration},
+            {'<leader>cd', vim.lsp.buf.definition},
+            {'<leader>ch', vim.lsp.buf.hover},
             {'<leader>ca', vim.lsp.buf.code_action, mode = {'n', 'v'} }
         },
     },

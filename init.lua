@@ -25,9 +25,12 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Do the lazy thing
 local lazy = require("lazy")
 lazy.setup("plugins", opts)
 
--- local catppuccin = require("catppuccin")
--- catppuccin.setup()
+-- Only manual keybinding
+vim.keymap.set('n', '<leader>ml', '<cmd>Lazy<cr>', { desc = "Lazy" })
+
+-- Set up the colorscheme
 vim.cmd.colorscheme "catppuccin"
