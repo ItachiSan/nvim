@@ -1,9 +1,7 @@
 -- Setup our own options
 require("options")
 
---[[
-Various stuff for lazy later
---]]
+-- Various stuff for lazy later
 local opts = {}
 
 --[[
@@ -33,4 +31,4 @@ lazy.setup("plugins", opts)
 vim.keymap.set('n', '<leader>ml', '<cmd>Lazy<cr>', { desc = "Lazy" })
 
 -- Set up the colorscheme
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme("catppuccin")
