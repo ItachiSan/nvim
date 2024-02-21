@@ -7,6 +7,25 @@ return {
             'nvim-lua/plenary.nvim',
             -- TODO: Add extra dependencies for better experience
         },
+        -- config = function()
+        --     -- Set up UI-select stuff here
+        --     local telescope = require("telescope")
+        --     local telescope_themes = require("telescope.themes")
+        --     telescope.setup({
+        --         extensions = {
+        --             ["ui-select"] = { telescope_themes.get_dropdown {} }
+        --         }
+        --     })
+        -- end,
+        opts = function()
+            -- Set up UI-select stuff here
+            local telescope_themes = require("telescope.themes")
+            return {
+                extensions = {
+                    ["ui-select"] = { telescope_themes.get_dropdown {} }
+                }
+            }
+        end,
         keys = function()
             local builtin = require("telescope.builtin")
             return {
@@ -15,5 +34,4 @@ return {
             }
         end
     },
- 
 }
