@@ -9,10 +9,10 @@ return {
 		local wk = require("which-key")
 		-- Register the sections
 		wk.add({
-            { "<leader>c", group = "Code" },
-            { "<leader>d", group = "Debug" },
+			{ "<leader>c", group = "Code" },
+			{ "<leader>d", group = "Debug" },
 			{ "<leader>f", group = "File" },
-            { "<leader>m", group = "Managers", }
+			{ "<leader>m", group = "Managers" },
 		})
 	end,
 }

@@ -1,13 +1,13 @@
 return {
 	-- General plugins for debugging
 	{
-        "rcarriga/nvim-dap-ui",
-        dependencies = {
-            "mfussenegger/nvim-dap",
-            "nvim-neotest/nvim-nio"
-        }
-    },
-    {
+		"rcarriga/nvim-dap-ui",
+		dependencies = {
+			"mfussenegger/nvim-dap",
+			"nvim-neotest/nvim-nio",
+		},
+	},
+	{
 		"mfussenegger/nvim-dap",
 		keys = function()
 			local dap = require("dap")
@@ -48,7 +48,7 @@ return {
 				--},
 			}
 		end,
-        -- The part below requires nvim-dap-ui for auto UI startup
+		-- The part below requires nvim-dap-ui for auto UI startup
 		config = function()
 			local dap = require("dap")
 			local dapui = require("dapui")
@@ -57,10 +57,10 @@ return {
 			dap.listeners.before.event_terminated.dapui_config = dapui.close
 			dap.listeners.before.event_exited.dapui_config = dapui.close
 		end,
-        dependencies = {
-            "rcarriga/nvim-dap-ui"
-        }
-	}, 
+		dependencies = {
+			"rcarriga/nvim-dap-ui",
+		},
+	},
 	-- Preconfigured profiles for debugging
 	{
 		"mfussenegger/nvim-dap-python",
