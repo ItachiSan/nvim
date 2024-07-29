@@ -31,4 +31,7 @@ lazy.setup("plugins", opts)
 vim.keymap.set('n', '<leader>ml', '<cmd>Lazy<cr>', { desc = "Lazy" })
 
 -- Set up the colorscheme
-vim.cmd.colorscheme("catppuccin")
+vim.opt.termguicolors = true
+-- vim.cmd.colorscheme "tokyonight"
+vim.cmd.colorscheme "catppuccin"
+-- vim.cmd.colorscheme("desert")
