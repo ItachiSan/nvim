@@ -36,11 +36,15 @@ return {
 			local lsp_capabilities = cmp_lsp.default_capabilities()
 
 			-- Hook all the servers
-			local lspconfig = require("lspconfig")
-			for server, server_config in pairs(required_lsp) do
-				server_config.capabilities = lsp_capabilities
-				lspconfig[server].setup(server_config)
-			end
+			-- Old manual approach
+			-- local lspconfig = require("lspconfig")
+			-- for server, server_config in pairs(required_lsp) do
+			-- 	server_config.capabilities = lsp_capabilities
+			-- 	lspconfig[server].setup(server_config)
+			-- end
+			-- New approach with automagic mason-lspconfig
+			local mason_lspconfig = require("mason-lspconfig")
+			mason_lspconfig.setup_handlers({})
 		end,
 		keys = {
 			{ "<leader>cD", vim.lsp.buf.declaration, desc = "Declaration" },
