@@ -6,7 +6,7 @@ local required_lsp = {
 	-- PKGBUILD (cannot be installed)
 	-- pkgbuild_language_server = {},
 	-- Python
-	ruff_lsp = {},
+	ruff = {},
 }
 
 return {
