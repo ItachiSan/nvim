@@ -11,7 +11,7 @@ local required_lsp = {
 
 return {
 	-- Neodev, ensures types for NVim stupp
-	"folke/neodev.nvim",
+	"folke/lazydev.nvim",
 	-- Mason hooks for setting up
 	{
 		"williamboman/mason-lspconfig.nvim",
@@ -27,9 +27,9 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-			-- Ensure neodev is set up before lua_ls
-			local neodev = require("neodev")
-			neodev.setup()
+			-- Ensure lazydev is set up before lua_ls
+			local lazydev = require("lazydev")
+			lazydev.setup()
 
 			-- Get the default server capabilities
 			local cmp_lsp = require("cmp_nvim_lsp")
@@ -44,7 +44,14 @@ return {
 			-- end
 			-- New approach with automagic mason-lspconfig
 			local mason_lspconfig = require("mason-lspconfig")
-			mason_lspconfig.setup_handlers({})
+
+			local lspconfig = require("lspconfig")
+			mason_lspconfig.setup_handlers({
+				-- The function with no key is applied to all servers
+				function (server_name)
+					lspconfig[server_name].setup({capabilities = lsp_capabilities})
+				end
+			})
 		end,
 		keys = {
 			{ "<leader>cD", vim.lsp.buf.declaration, desc = "Declaration" },
